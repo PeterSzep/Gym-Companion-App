@@ -1,4 +1,4 @@
-🏋️‍♂️ Full-Stack Gym Companion
+# 🏋️‍♂️ Full-Stack Gym Companion
 This is a high-performance workout tracking suite designed to eliminate the friction of traditional fitness apps. It features a robust Spring Boot REST API and a sleek, aesthetically driven React dashboard, allowing athletes to log sets, manage exercise libraries, and visualize progress in real-time.
 
 🏗️ System Architecture
