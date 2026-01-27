@@ -1,0 +1,21 @@
+//DELETE http://localhost:8080/api/exercises/8
+
+//CREATE
+POST http://localhost:8080/api/exercises
+    Content-Type: application/json
+
+    {
+      "exerciseName": "Incline Bench Press",
+     "muscleGroup": "Chest",
+     "equipment": "Dumbbells"
+    }
+
+#//UPDATE
+#PUT http://localhost:8080/api/exercises/1
+#Content-Type: application/json
+#
+#{
+#  "exerciseName": "Updated Bench Press",
+#  "muscleGroup": "Chest",
+#  "equipment": "Barbell"
+#}
