@@ -39,3 +39,14 @@ Scrollable Exercise Vault: A sleek modal to view and manage sets.
 Instant UI Feedback: Optimized state management for a "no-reload" experience.
 
 Responsive Fluidity: Fully optimized for mobile use during training
+
+# Screenshots:
+<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/9000354e-db64-4bcc-a6ba-6b403edf7832" />
+<img width="850" height="704" alt="image" src="https://github.com/user-attachments/assets/d063afb2-bb83-44c7-a49b-a4241a6e7a74" />
+<img width="572" height="614" alt="image" src="https://github.com/user-attachments/assets/83dc2702-df57-407e-b381-aa27721c2808" />
+<img width="565" height="611" alt="image" src="https://github.com/user-attachments/assets/3697e79c-fa06-4b0e-94ba-9a3343aed206" />
+
+
+
+
+
