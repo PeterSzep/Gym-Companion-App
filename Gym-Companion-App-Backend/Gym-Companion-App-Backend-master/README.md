@@ -1,5 +1,5 @@
 ## ⚙️ Gym Companion Backend
-IronPath Backend is a robust REST API built with Spring Boot and Spring Data JPA. It handles the core business logic, persistence of workout data, and the relational mapping between workout sessions and exercise definitions.
+This is a REST API built with Spring Boot and Spring Data JPA. It handles the core logic, persistence of workout data, and the relational mapping between workout sessions and exercise definitions.
 
 🛠️ Tech Stack
 Framework: Spring Boot 4.0.2
