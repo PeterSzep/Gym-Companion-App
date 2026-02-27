@@ -33,7 +33,7 @@ Hibernate will auto-create the tables on first run (`ddl-auto=update`).
 ### Backend
 
 ```bash
-cd backend/gym-app/gym-app
+cd Gym-Companion-App-Backend/gym-app/gym-app
 ./mvnw spring-boot:run
 ```
 
@@ -42,7 +42,7 @@ Runs on `http://localhost:8080`.
 ### Frontend
 
 ```bash
-cd frontend/frontend
+cd Gym-Companion-App-Frontend/frontend
 npm install
 npm run dev
 ```
