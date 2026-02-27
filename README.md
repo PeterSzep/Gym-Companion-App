@@ -1,53 +1,109 @@
-# 🏋️‍♂️ Full-Stack Gym Companion
-This is a workout tracking suite designed to eliminate the friction of traditional fitness apps. It features a robust Spring Boot REST API and a sleek, aesthetically driven React dashboard, allowing athletes to log sets and see their progress in real-time.
+# GymCompanion
 
-🏗️ System Architecture
-The platform is built on a decoupled architecture, ensuring a smooth flow between the data layer and the user interface:
+A full-stack workout tracking app. Log gym sessions, track exercises with sets, reps, and weight, and manage your training history.
 
-⚙️ Backend (Spring Boot)
-The core business logic and data persistence layer. It handles the relational mapping between sessions and exercises using a "Join Table" logic.
+## Tech Stack
 
-Framework: Spring Boot 4.0.2 / Java 25
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, Vite, Tailwind CSS 4 |
+| Backend | Spring Boot 4, Java 25, Spring Data JPA |
+| Database | PostgreSQL |
 
-Persistence: Spring Data JPA / Hibernate
+## Prerequisites
 
-Database: H2 (Development) / PostgreSQL (Production)
+- Java 25+
+- Node.js 18+
+- PostgreSQL running on `localhost:5432`
 
-Key Logic: * Workout: Tracks individual sessions (e.g., "Leg Day").
+## Setup
 
-Exercise: A unique library of movements (e.g., "Squats").
+### Database
 
-WorkoutLog: The bridge entity recording specific sets, reps, and weight.
+Create a PostgreSQL database named `gymDatabase` and a user with access to it. Update the credentials in `backend/gym-app/gym-app/src/main/resources/application.properties`:
 
-Circular Reference Management: Uses Jackson with @JsonIgnoreProperties for clean JSON serialization.
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/gymDatabase
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+```
 
-💻 Frontend (React)
-A "gym-floor-ready" interface designed for speed and responsiveness.
+Hibernate will auto-create the tables on first run (`ddl-auto=update`).
 
-Core: React 18 (Vite-powered for instant HMR)
+### Backend
 
-Styling: Tailwind CSS
+```bash
+cd backend/gym-app/gym-app
+./mvnw spring-boot:run
+```
 
-Icons: Lucide-React
+Runs on `http://localhost:8080`.
 
-Features:
+### Frontend
 
-Workout Intelligence: Automatically links new exercises to current sessions.
+```bash
+cd frontend/frontend
+npm install
+npm run dev
+```
 
-Scrollable Exercise Vault: A sleek modal to view and manage sets.
+Runs on `http://localhost:5173`.
 
-Instant UI Feedback: Optimized state management for a "no-reload" experience.
+## API Endpoints
 
-Responsive Fluidity: Fully optimized for mobile use during training
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/workouts` | List all workouts |
+| POST | `/api/workouts` | Create a workout |
+| PUT | `/api/workouts/{id}` | Update a workout |
+| DELETE | `/api/workouts/{id}` | Delete a workout |
+| GET | `/api/exercises` | List all exercises |
+| POST | `/api/exercises` | Create an exercise |
+| PUT | `/api/exercises/{id}` | Update an exercise |
+| DELETE | `/api/exercises/{id}` | Delete an exercise |
+| GET | `/api/workoutLogs` | List all workout logs |
+| POST | `/api/workoutLogs` | Log an exercise to a workout (auto-creates exercise if name is new) |
+| PUT | `/api/workoutLogs/{id}` | Update a log entry |
+| DELETE | `/api/workoutLogs/{id}` | Delete a log entry |
 
-# Screenshots:
-<img width="1919" height="861" alt="image" src="https://github.com/user-attachments/assets/9000354e-db64-4bcc-a6ba-6b403edf7832" />
+## Project Structure
 
+```
+├── backend/
+│   └── gym-app/gym-app/        # Spring Boot application
+│       ├── src/main/java/com/gym_app/gym_app/
+│       │   ├── controller/     # REST controllers
+│       │   ├── model/          # JPA entities (Workout, Exercise, WorkoutLog)
+│       │   ├── repository/     # Spring Data repositories
+│       │   └── config/         # CORS config
+│       └── src/main/resources/
+│           └── application.properties
+└── frontend/
+    └── frontend/               # React application
+        └── src/
+            ├── App.jsx         # Root — holds workout state
+            ├── fetches.js      # All API calls
+            └── components/
+                ├── Navbar.jsx
+                ├── Workouts.jsx
+                ├── WorkoutCard.jsx
+                ├── Details.jsx
+                ├── CreateWorkout.jsx
+                └── CreateExercise.jsx
+```
 
-<img width="850" height="704" alt="image" src="https://github.com/user-attachments/assets/d063afb2-bb83-44c7-a49b-a4241a6e7a74" />
+## Data Model
 
+```
+Workout  ──< WorkoutLog >──  Exercise
+  id             id              id
+  workoutName    sets            exerciseName
+  workoutDate    reps            muscleGroup
+  notes          weight          equipment
+```
 
-<img width="572" height="614" alt="image" src="https://github.com/user-attachments/assets/83dc2702-df57-407e-b381-aa27721c2808" />
+A `WorkoutLog` is a join between a `Workout` and an `Exercise` that stores performance data (sets, reps, weight).
+
 
 
 <img width="565" height="611" alt="image" src="https://github.com/user-attachments/assets/3697e79c-fa06-4b0e-94ba-9a3343aed206" />
