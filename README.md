@@ -103,12 +103,3 @@ Workout  ──< WorkoutLog >──  Exercise
 ```
 
 A `WorkoutLog` is a join between a `Workout` and an `Exercise` that stores performance data (sets, reps, weight).
-
-
-
-<img width="565" height="611" alt="image" src="https://github.com/user-attachments/assets/3697e79c-fa06-4b0e-94ba-9a3343aed206" />
-
-
-
-
-
